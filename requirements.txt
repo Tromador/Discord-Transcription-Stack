@@ -1,0 +1,6 @@
+torch
+soundfile
+tqdm
+faster-whisper
+numpy
+matplotlib
