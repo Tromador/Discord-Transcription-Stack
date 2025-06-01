@@ -1,6 +1,10 @@
 # Discord Audio Transcript Deduplication Pipeline
 
 This document outlines the complete processing pipeline used to transform Discord voice session recordings into a clean, deduplicated transcript. It includes toolchain descriptions, code usage, and reasoning behind each processing step.
+I have been using it to capture a TTRPG session, then using an LLM to create an "after action report", but it could be adapted for other purposes. If this helps you with something, that's just fantastic. It's all presented "as is" and 
+will almost certainly require some work to configure for your circumstances. In particular, it's been designed to work using CTranslate2 library. When I coded this, the RTX5000 series was brand spanking new so I had to compile this myself
+(possibly binary releases are now available) and this was not straightforward. Thus the transcription script only works with GPU - but should be easy enough to alter to run CPU models if that suits you better. All other modules were 
+"off the shelf", but some did require some configuration and persuasion. Have fun!
 
 ---
 
@@ -229,6 +233,3 @@ Preserves:
 | `burst_scope.py`         | Rescues short sharp utterances from false VAD rejection   |
 | `transcribe_accepted.py` | Transcribes accepted .wav files into enriched JSONL       |
 | `dedupe_transcript.py`  | Deduplicates transcribed JSONL using clustering           |
-
-Powershell> & 'C:\Program Files\Google\Chrome\Application\chrome.exe' --remote-debugging-port=9222 --user-data-dir="C:\tmp\chrome-debug" --no-first-run
-Git Bash$ socat TCP-LISTEN:9223,fork TCP:127.0.0.1:9222
