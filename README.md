@@ -39,3 +39,29 @@ The pipeline operates in the following phases:
    - `transcribe_accepted.py` to transcribe.
    - `dedupe_transcript.py` to deduplicate.
 4. Review the final transcript output.
+
+---
+
+## ⚡ Key Notes
+- Built specifically for **GPU-accelerated transcription** with **faster-whisper**.
+- Designed and tested on a **GeForce RTX 5090** with a custom-built **CTranslate2** backend.
+- Provided **"as is"**, with no guarantees; it's up to you to configure and compile any needed dependencies.
+
+---
+
+## 📦 Installation
+
+### Python Dependencies
+    pip install -r requirements.txt
+    (further dependencies may be required)
+
+### Node.js Dependencies
+    npm install
+    (further dependencies may be required)
+
+---
+
+## 📜 License
+BSD 3-Clause License — Permissive use, with **attribution required**.  
+
+---
