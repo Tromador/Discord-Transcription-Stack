@@ -53,13 +53,11 @@ The pipeline operates in the following phases:
 
 ### Python Dependencies
     pip install -r requirements.txt
-    
-    (further dependencies may be required)
+(further dependencies may be required)
 
 ### Node.js Dependencies
-    npm install
-    
-    (further dependencies may be required)
+    npm install 
+(further dependencies may be required)
 
 ---
 
