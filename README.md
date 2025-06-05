@@ -60,7 +60,9 @@ The pipeline operates in the following phases:
 (further dependencies may be required)
 
 ---
+
 See also [Pipeline Document](https://github.com/Tromador/Discord-Transcription-Stack/blob/main/discord_transcript_pipeline.md)
+
 ---
 
 ## 📜 License
