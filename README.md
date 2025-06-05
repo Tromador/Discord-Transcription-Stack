@@ -61,6 +61,10 @@ The pipeline operates in the following phases:
 
 ---
 
+### See also https://github.com/Tromador/Discord-Transcription-Stack/blob/main/discord_transcript_pipeline.md
+
+---
+
 ## 📜 License
 BSD 3-Clause License — Permissive use, with **attribution required**.  
 
