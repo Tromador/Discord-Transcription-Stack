@@ -65,6 +65,20 @@ See also [Pipeline Document](https://github.com/Tromador/Discord-Transcription-S
 
 ---
 
+![GPU Accelerated](https://img.shields.io/badge/GPU-accelerated-blueviolet?logo=nvidia&style=flat-square)
+![Backend: CTranslate2](https://img.shields.io/badge/Backend-CTranslate2-green?style=flat-square)
+![Transcription: Whisper](https://img.shields.io/badge/Transcription-Whisper_Large_v3-informational?style=flat-square)
+![Voice Activity Detection](https://img.shields.io/badge/VAD-Silero-orange?style=flat-square)
+![Clustering](https://img.shields.io/badge/Deduplication-Clustering_based-critical?style=flat-square)
+![Burst Rescue](https://img.shields.io/badge/Burst_Rescue-Enabled-ff69b4?style=flat-square)
+![Audio Format](https://img.shields.io/badge/Audio-WAV_48kHz_16bit_mono-lightgrey?style=flat-square)
+![Session Logs](https://img.shields.io/badge/Logging-JSONL_per_user-yellow?style=flat-square)
+![Python](https://img.shields.io/badge/Python-3.10%2B-blue?logo=python&style=flat-square)
+![Node.js](https://img.shields.io/badge/Node.js-Required-yellowgreen?logo=node.js&style=flat-square)
+![BSD 3-Clause](https://img.shields.io/badge/License-BSD_3--Clause-lightgrey?style=flat-square)
+
+---
+
 ## 📜 License
 BSD 3-Clause License — Permissive use, with **attribution required**.  
 
