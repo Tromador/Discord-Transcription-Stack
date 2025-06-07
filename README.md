@@ -78,8 +78,3 @@ See also [Pipeline Document](https://github.com/Tromador/Discord-Transcription-S
 ![BSD 3-Clause](https://img.shields.io/badge/License-BSD_3--Clause-lightgrey?style=flat-square)
 
 ---
-
-## 📜 License
-BSD 3-Clause License — Permissive use, with **attribution required**.  
-
----
