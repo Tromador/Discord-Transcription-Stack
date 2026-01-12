@@ -18,14 +18,8 @@ EventEmitter.defaultMaxListeners = 0; // Suppress Node warning spam
 
 // 🧾 Static user name mapping
 const userNames: Record<string, string> = {
-  '881203221593464864': 'Stef',
-  '333965420539150337': 'Trish',
-  '113055275296030720': 'Hannah',
-  '340336807222837270': 'Hannah',
-  '220001681423859714': 'Rich',
-  '561856229979324417': 'Judy',
-  '351457457848975362': 'Michael',
-  '1204297411292565585': 'Drax',
+  '123456789012345678': 'Example User',
+  ,
 };
 
 // 🔧 Config
