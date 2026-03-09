@@ -2,8 +2,8 @@
 
 This document outlines the complete processing pipeline used to transform Discord voice session recordings into a clean, deduplicated transcript. It includes toolchain descriptions, code usage, and reasoning behind each processing step.
 I have been using it to capture a TTRPG session, then using an LLM to create an "after action report", but it could be adapted for other purposes. If this helps you with something, that's just fantastic. It's all presented "as is" and 
-will almost certainly require some work to configure for your circumstances. In particular, it's been designed to work using CTranslate2 library. When I coded this, the RTX5000 series was brand spanking new so I had to compile this myself
-(possibly binary releases are now available) and this was not straightforward. Thus the transcription script only works with GPU - but should be easy enough to alter to run CPU models if that suits you better. All other modules were 
+will almost certainly require some work to configure for your circumstances. The pipeline uses faster-whisper on top of CTranslate2, and today you can install standard binary wheels from PyPI
+(no custom local CTranslate2 build required). PyPI currently publishes modern CTranslate2 releases (for example 4.7.1), so this project can target standard package installation. The transcription script supports both CUDA/GPU and CPU modes via CLI flags, so the same project can run on high-end RTX cards or a CPU-only machine. All other modules were 
 "off the shelf", but some did require some configuration and persuasion. Have fun!
 
 ---
@@ -139,20 +139,26 @@ Reads the filtered metadata from `dedupe_audit.py` and performs Whisper transcri
 - Adds a `"text"` field to each entry with the transcription result
 - Skips missing audio files with warnings
 - Outputs an updated `.jsonl` with the transcribed text included
-- Sets compute type to "auto" and restricts CPU threads to 1
+- Supports `--device` (`auto`/`cpu`/`cuda`) and configurable `--compute-type`
+- Allows `--cpu-threads` tuning for CPU runs
+- Keeps rejected/non-accepted rows in output JSONL and only enriches accepted rows
 
 ### Example Command:
     python3 transcribe_accepted.py \
       --input-log dedupe_audit_2025-05-04.v2.jsonl \
       --audio-dir ../discord_audio_bot/audio/2025-05-04 \
       --model-dir models/whisper-large-v3-f16 \
-      --output-jsonl session_log.transcribed.jsonl
+      --output-jsonl session_log.transcribed.jsonl \
+      --device auto \
+      --compute-type auto
 
 ### Notes:
 - `--input-log` points to the filtered log output by `dedupe_audit.py`
 - `--audio-dir` contains the audio files (`.wav`) referenced in the log
 - `--model-dir` specifies the directory containing the faster-whisper model
 - `--output-jsonl` is where the transcribed log with text will be saved
+- Use `--device cpu` to force CPU inference when no compatible CUDA GPU/runtime is available
+- Use `--compute-type` (for example `int8` on CPU or `float16` on CUDA) to match your hardware
 
 ### Example JSONL Entry (after transcription):
     {
