@@ -43,9 +43,9 @@ The pipeline operates in the following phases:
 ---
 
 ## ⚡ Key Notes
-- Built specifically for **GPU-accelerated transcription** with **faster-whisper**.
-- Designed and tested on a **GeForce RTX 5090** with a custom-built **CTranslate2** backend.
-- Provided **"as is"**, with no guarantees; it's up to you to configure and compile any needed dependencies.
+- Built around **faster-whisper** with standard **CTranslate2** binary releases from PyPI.
+- Supports both **GPU (CUDA)** and **CPU** transcription paths via runtime flags in `transcribe_accepted.py`.
+- Still tested heavily on RTX-class GPUs, but no longer documented as requiring a custom local CTranslate2 build.
 
 ---
 
@@ -55,6 +55,8 @@ The pipeline operates in the following phases:
     pip install -r requirements.txt
 (further dependencies may be required)
 
+CTranslate2 is available on PyPI (for example, `pip index versions ctranslate2` currently reports 4.7.1 and historical releases).
+
 ### Node.js Dependencies
     npm install 
 (further dependencies may be required)
@@ -62,6 +64,10 @@ The pipeline operates in the following phases:
 ---
 
 See also [Pipeline Document](https://github.com/Tromador/Discord-Transcription-Stack/blob/main/discord_transcript_pipeline.md)
+
+---
+
+See also [2026 Retrospective Notes](./RETROSPECTIVE_2026.md)
 
 ---
 
