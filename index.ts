@@ -19,7 +19,6 @@ EventEmitter.defaultMaxListeners = 0; // Suppress Node warning spam
 // 🧾 Static user name mapping
 const userNames: Record<string, string> = {
   '123456789012345678': 'Example User',
-  ,
 };
 
 // 🔧 Config
@@ -74,6 +73,17 @@ function setupReceiver(receiver: VoiceReceiver) {
 
 function captureUserAudio(receiver: VoiceReceiver, userId: string) {
   streamCount++;
+  let finalized = false;
+
+  const finalizeStream = () => {
+    if (finalized) {
+      return false;
+    }
+
+    finalized = true;
+    streamCount = Math.max(0, streamCount - 1);
+    return true;
+  };
 
   if (streamCount > 100) {
     console.log(`******** Stream count: ${streamCount} ********`);
@@ -118,7 +128,7 @@ function captureUserAudio(receiver: VoiceReceiver, userId: string) {
   const startTime = new Date();
 
   pipeline(opusStream, pcmStream, wavWriter, (err: Error | null) => {
-    streamCount--;
+    finalizeStream();
 
     const endTime = new Date();
 
@@ -141,7 +151,7 @@ function captureUserAudio(receiver: VoiceReceiver, userId: string) {
 
   // Failsafe: clean up in case pipeline never resolves
   setTimeout(() => {
-    streamCount--;
+    finalizeStream();
   }, 15000);
 }
 
