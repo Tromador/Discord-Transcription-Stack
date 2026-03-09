@@ -63,11 +63,11 @@ CTranslate2 is available on PyPI (for example, `pip index versions ctranslate2` 
 
 ---
 
-See also [Pipeline Document](https://github.com/Tromador/Discord-Transcription-Stack/blob/main/discord_transcript_pipeline.md)
+**AI Transparency Statement** - Mostly built with the aid of ChatGPT. Author is a sysadmin and project manager with some decades of experience. Author believes he can appropriately supervise the "dev team", nevertheless wishes to be honest and upfront for anyone who worries about such things.
 
 ---
 
-See also [2026 Retrospective Notes](./RETROSPECTIVE_2026.md)
+See also [Pipeline Document](https://github.com/Tromador/Discord-Transcription-Stack/blob/main/discord_transcript_pipeline.md)
 
 ---
 
